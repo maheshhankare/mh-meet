@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MH_MEET</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- Intro video (plays on every visit) -->
+  <div id="intro" class="intro">
+    <video id="introVideo" src="/intro.mp4" autoplay muted playsinline></video>
+    <button id="skipBtn" class="skip">Skip ⏭</button>
+  </div>
+  <!-- Landing -->
+  <section id="home" class="screen">
+    <div class="home-card">
+      <h1><span class="logo">MH</span>_MEET</h1>
+      <p class="tag">Simple, free video meetings. Peer-to-peer with WebRTC.</p>
+      <input id="nameInput" placeholder="Your name" maxlength="30" />
+      <button id="newBtn" class="primary">New meeting</button>
+      <div class="join-row">
+        <input id="codeInput" placeholder="Enter a code or link" />
+        <button id="joinBtn">Join</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-join -->
+  <section id="lobby" class="screen hidden">
+    <div class="lobby-wrap">
+      <video id="previewVideo" autoplay playsinline muted></video>
+      <div class="lobby-side">
+        <h2>Ready to join?</h2>
+        <p id="lobbyRoom" class="muted"></p>
+        <input id="lobbyName" placeholder="Your name" maxlength="30" />
+        <button id="enterBtn" class="primary">Join now</button>
+        <p id="lobbyErr" class="err"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call -->
+  <section id="call" class="screen hidden">
+    <div id="grid" class="grid"></div>
+    <aside id="chatPanel" class="chat hidden">
+      <div class="chat-head">In-call messages <button id="chatClose" class="icon">✕</button></div>
+      <div id="chatLog" class="chat-log"></div>
+      <form id="chatForm"><input id="chatInput" placeholder="Send a message" autocomplete="off" /><button>Send</button></form>
+    </aside>
+    <div class="bar">
+      <div class="bar-left"><span id="roomLabel"></span></div>
+      <div class="bar-mid">
+        <button id="micBtn" class="round" title="Microphone">🎤</button>
+        <button id="camBtn" class="round" title="Camera">📷</button>
+        <button id="shareBtn" class="round" title="Share screen">🖥️</button>
+        <button id="chatBtn" class="round" title="Chat">💬</button>
+        <button id="leaveBtn" class="round danger" title="Leave">📞</button>
+      </div>
+      <div class="bar-right"><button id="copyBtn">Copy invite link</button></div>
+    </div>
+    <div id="toast" class="toast hidden"></div>
+  </section>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
